@@ -14,6 +14,7 @@ public class MappingClass : ClassBase
     /// </summary>
     public MappingClass()
     {
+        Generate = false;
         Namespace = "{Project.Namespace}.Data.Mapping";
         Directory = @"{Project.Directory}\Data\Mapping";
         Name = "{Entity.Name}Map";
@@ -38,4 +39,11 @@ public class MappingClass : ClassBase
     [DefaultValue(RowVersionMapping.ByteArray)]
     public RowVersionMapping RowVersion { get; set; } = RowVersionMapping.ByteArray;
 
+    /// <summary>
+    /// Gets or sets a value indicating whether this option is generated.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> to generate; otherwise, <c>false</c>.
+    /// </value>
+    public bool Generate { get; set; }
 }
