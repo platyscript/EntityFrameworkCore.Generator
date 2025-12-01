@@ -139,6 +139,7 @@ public static class OptionMapper
 
         option.Temporal = mapping.Temporal;
         option.RowVersion = mapping.RowVersion;
+        option.Generate = mapping.Generate;
     }
 
     private static void MapEntity(EntityClassOptions option, EntityClass entity)

@@ -14,6 +14,7 @@ public class MappingClassOptions : ClassOptionsBase
     public MappingClassOptions(VariableDictionary variables, string? prefix)
         : base(variables, AppendPrefix(prefix, "Mapping"))
     {
+        Generate = false;
         Namespace = "{Project.Namespace}.Data.Mapping";
         Directory = @"{Project.Directory}\Data\Mapping";
         Name = "{Entity.Name}Map";
@@ -38,4 +39,11 @@ public class MappingClassOptions : ClassOptionsBase
     [DefaultValue(RowVersionMapping.ByteArray)]
     public RowVersionMapping RowVersion { get; set; } = RowVersionMapping.ByteArray;
 
+    /// <summary>
+    /// Gets or sets a value indicating whether this option is generated.
+    /// </summary>
+    /// <value>
+    ///   <c>true</c> to generate; otherwise, <c>false</c>.
+    /// </value>
+    public bool Generate { get; set; }
 }

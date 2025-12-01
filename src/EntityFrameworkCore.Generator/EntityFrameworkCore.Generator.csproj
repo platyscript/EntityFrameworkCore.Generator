@@ -5,6 +5,7 @@
     <ToolCommandName>efg</ToolCommandName>
     <PackAsTool>true</PackAsTool>
     <NoWarn>1591,EF1001</NoWarn>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,4 +18,17 @@
     <ProjectReference Include="..\EntityFrameworkCore.Generator.Core\EntityFrameworkCore.Generator.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ExeFiles Include="$(TargetDir)\**\*"/>
+  </ItemGroup>
+
+  <Target Name="CopyDLLs" AfterTargets="Build">
+    <Message Text="Executing CopyDLLs task" Importance="High" />
+
+    <Copy
+      SourceFiles="@(ExeFiles)"
+      DestinationFolder="../../../efg/" />
+
+    <Message Text="Copied build files" Importance="High" />
+  </Target>
 </Project>
